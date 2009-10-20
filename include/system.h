@@ -15,9 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __SYSTEM_H
+#define __SYSTEM_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+void flush_bridge_cache();
 
-#endif /* __HW_AC97_H */
+#endif /* __SYSTEM_H */

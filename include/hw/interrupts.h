@@ -15,9 +15,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __INTERRUPTS_H
+#define __INTERRUPTS_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+#define IRQ_GPIO		(0x00000001)
+#define IRQ_TIMER0		(0x00000002)
+#define IRQ_TIMER1		(0x00000004)
+#define IRQ_UARTRX		(0x00000008)
+#define IRQ_UARTTX		(0x00000010)
+#define IRQ_AC97CRREQUEST	(0x00000020)
+#define IRQ_AC97CRREPLY		(0x00000040)
+#define IRQ_AC97DMAR		(0x00000080)
+#define IRQ_AC97DMAW		(0x00000100)
+#define IRQ_PFPU		(0x00000200)
+#define IRQ_TMU			(0x00000400)
 
-#endif /* __HW_AC97_H */
+#endif /* __INTERRUPTS_H */

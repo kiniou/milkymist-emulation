@@ -15,9 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __UART_H
+#define __UART_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+void uart_async_init();
+void uart_async_isr_rx();
+void uart_async_isr_tx();
+void uart_force_sync(int f);
 
-#endif /* __HW_AC97_H */
+void writechar(char c);
+char readchar();
+int readchar_nonblock();
+
+#endif

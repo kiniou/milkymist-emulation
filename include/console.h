@@ -15,9 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __CONSOLE_H
+#define __CONSOLE_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+void writechar(char c);
+int puts(const char *s);
+void putsnonl(const char *s);
+char readchar();
+void readstr(char *s, int size);
 
-#endif /* __HW_AC97_H */
+#endif /* __CONSOLE_H */

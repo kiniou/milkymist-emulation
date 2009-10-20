@@ -15,9 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __IRQ_H
+#define __IRQ_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+void irq_enable(unsigned int en);
+unsigned int irq_isenabled(); /* < can we get interrupted? returns 0 within ISRs */
+void irq_setmask(unsigned int mask);
+unsigned int irq_getmask();
+unsigned int irq_pending();
+void irq_ack(unsigned int mask);
 
-#endif /* __HW_AC97_H */
+#endif /* __IRQ_H */

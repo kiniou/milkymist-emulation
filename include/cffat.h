@@ -15,9 +15,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __HW_AC97_H
-#define __HW_AC97_H
+#ifndef __CFFAT_H
+#define __CFFAT_H
 
-#define AC97_MAX_DMASIZE	(0x3fffc)
+typedef int (*cffat_dir_callback)(const char *, const char *, void *);
 
-#endif /* __HW_AC97_H */
+int cffat_init();
+int cffat_list_files(cffat_dir_callback cb, void *param);
+int cffat_load(const char *filename, char *buffer, int size, int *realsize);
+void cffat_done();
+
+#endif /* __CFFAT_H */
