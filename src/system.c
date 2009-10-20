@@ -15,12 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __CONSOLE_H
-#define __CONSOLE_H
+#include <system.h>
 
-#include <stdio.h>
-
-void putsnonl(const char *s);
-void readstr(char *s, int size);
-
-#endif /* __CONSOLE_H */
+void flush_bridge_cache()
+{
+}

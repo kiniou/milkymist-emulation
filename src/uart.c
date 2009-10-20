@@ -15,12 +15,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __CONSOLE_H
-#define __CONSOLE_H
+#include <uart.h>
 
-#include <stdio.h>
+void uart_async_init()
+{
+}
 
-void putsnonl(const char *s);
-void readstr(char *s, int size);
+void uart_async_isr_rx()
+{
+}
 
-#endif /* __CONSOLE_H */
+void uart_async_isr_tx()
+{
+}
+
+void uart_force_sync(int f)
+{
+}
+
+void writechar(char c)
+{
+}
+
+char readchar()
+{
+}
+
+int readchar_nonblock()
+{
+}

@@ -15,12 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __CONSOLE_H
-#define __CONSOLE_H
-
 #include <stdio.h>
 
-void putsnonl(const char *s);
-void readstr(char *s, int size);
+#include <console.h>
 
-#endif /* __CONSOLE_H */
+void putsnonl(const char *s)
+{
+	printf("%s", s);
+}
+
+void readstr(char *s, int size)
+{
+}

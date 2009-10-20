@@ -15,12 +15,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __CONSOLE_H
-#define __CONSOLE_H
+#include <irq.h>
 
-#include <stdio.h>
+void irq_enable(unsigned int en)
+{
+}
 
-void putsnonl(const char *s);
-void readstr(char *s, int size);
+unsigned int irq_isenabled()
+{
+}
 
-#endif /* __CONSOLE_H */
+void irq_setmask(unsigned int mask)
+{
+}
+
+unsigned int irq_getmask()
+{
+}
+
+unsigned int irq_pending()
+{
+}
+
+void irq_ack(unsigned int mask)
+{
+}

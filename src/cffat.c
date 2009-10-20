@@ -15,12 +15,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef __CONSOLE_H
-#define __CONSOLE_H
+#include <cffat.h>
 
-#include <stdio.h>
+int cffat_init()
+{
+}
 
-void putsnonl(const char *s);
-void readstr(char *s, int size);
+int cffat_list_files(cffat_dir_callback cb, void *param)
+{
+}
 
-#endif /* __CONSOLE_H */
+int cffat_load(const char *filename, char *buffer, int size, int *realsize)
+{
+}
+
+void cffat_done()
+{
+}
+

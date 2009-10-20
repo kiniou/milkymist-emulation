@@ -1,6 +1,6 @@
 CFLAGS=-O2 -fno-builtin -fsigned-char -fsingle-precision-constant -I../include
 
-OBJECTS=brd.o hdlcd.o mem.o pfpu.o slowout.o snd.o time.o tmu.o vga.o
+OBJECTS=irq.o uart.o cffat.o console.o system.o brd.o hdlcd.o mem.o pfpu.o slowout.o snd.o time.o tmu.o vga.o
 
 all: libmmemulation.a
 
@@ -14,6 +14,7 @@ depend:
 
 clean:
 	rm -f *.o libmmemulation.a .*~ *~ Makefile.bak
+
 # DO NOT DELETE
 
 brd.o: ../include/board.h ../include/hal/brd.h
