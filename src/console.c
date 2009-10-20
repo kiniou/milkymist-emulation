@@ -16,12 +16,13 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include <console.h>
 
 void putsnonl(const char *s)
 {
-	printf("%s", s);
+	write(0, s, strlen(s));
 }
 
 void readstr(char *s, int size)

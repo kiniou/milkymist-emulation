@@ -15,32 +15,65 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <termios.h>
+#include <poll.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <uart.h>
+
+static struct termios otty;
 
 void uart_async_init()
 {
+	struct termios ntty;
+	
+	tcgetattr(0, &otty);
+	ntty = otty;
+	ntty.c_lflag &= ~(ECHO | ICANON);
+	tcsetattr(0, TCSANOW, &ntty);
 }
 
 void uart_async_isr_rx()
 {
+	printf("uart_async_isr_rx() should not be called in emulation mode\n");
 }
 
 void uart_async_isr_tx()
 {
+	printf("uart_async_isr_tx() should not be called in emulation mode\n");
 }
 
 void uart_force_sync(int f)
 {
+	/* do nothing */
 }
 
 void writechar(char c)
 {
+	write(0, &c, 1);
 }
 
 char readchar()
 {
+	char c;
+
+	read(0, &c, 1);
+	return c;
 }
 
 int readchar_nonblock()
 {
+	struct pollfd fd;
+	int flags;
+	int r;
+
+	fd.fd = 0;
+	fd.events = POLLIN;
+
+	flags = fcntl(0, F_GETFL, 0);
+	fcntl(0, F_SETFL, flags|O_NONBLOCK);
+	r = poll(&fd, 1, 0);
+	fcntl(0, F_SETFL, flags);
+
+	return r;
 }
