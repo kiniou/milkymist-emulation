@@ -27,11 +27,14 @@ int vga_vres;
 unsigned short int *vga_frontbuffer;
 unsigned short int *vga_backbuffer;
 
-static SDL_Surface *screen;
+unsigned short int *surface_buffer;
+unsigned short int *extra_buffer;
 
-static void free_backbuffer()
+static SDL_Surface *screen = NULL;
+
+static void free_extrabuffer()
 {
-	free(vga_backbuffer);
+	free(extra_buffer);
 }
 
 void vga_init()
@@ -50,13 +53,21 @@ void vga_init()
 	}
 	SDL_WM_SetCaption("Milkymist Video Output", NULL);
 
-	vga_frontbuffer = (unsigned short int *)screen->pixels;
-	vga_backbuffer = malloc(2*vga_hres*vga_vres);
-	atexit(free_backbuffer);
+	vga_frontbuffer = surface_buffer = (unsigned short int *)screen->pixels;
+	vga_backbuffer = extra_buffer = malloc(2*vga_hres*vga_vres);
+	atexit(free_extrabuffer);
 
 	printf("VGA: SDL emulation, %dx%d\n", vga_hres, vga_vres);
 }
 
 void vga_swap_buffers()
 {
+	memcpy(vga_frontbuffer, vga_backbuffer, 2*vga_hres*vga_vres);
+	SDL_Flip(screen);
+}
+
+void vga_update()
+{
+	if(screen)
+		SDL_Flip(screen);
 }

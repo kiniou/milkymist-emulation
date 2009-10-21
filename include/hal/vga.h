@@ -25,5 +25,6 @@ extern unsigned short int *vga_backbuffer;
 
 void vga_init();
 void vga_swap_buffers();
+void vga_update(); /* < emulator internal use only */
 
 #endif /* __HAL_VGA_H */

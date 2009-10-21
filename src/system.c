@@ -17,6 +17,7 @@
 
 #include <SDL/SDL.h>
 #include <system.h>
+#include <vga.h>
 
 void emu_init()
 {
@@ -27,6 +28,20 @@ void emu_init()
 	atexit(SDL_Quit);
 }
 
+void emu_service()
+{
+	SDL_Event e;
+
+	if(SDL_PollEvent(&e)) {
+		switch(e.type) {
+			case SDL_QUIT:
+				exit(0);
+				break;
+		}
+	}
+}
+
 void flush_bridge_cache()
 {
+	vga_update();
 }

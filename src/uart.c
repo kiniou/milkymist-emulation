@@ -23,6 +23,11 @@
 
 static struct termios otty;
 
+static void restore_console()
+{
+	tcsetattr(0, TCSANOW, &otty);
+}
+
 void uart_async_init()
 {
 	struct termios ntty;
@@ -31,6 +36,7 @@ void uart_async_init()
 	ntty = otty;
 	ntty.c_lflag &= ~(ECHO | ICANON);
 	tcsetattr(0, TCSANOW, &ntty);
+	atexit(restore_console);
 }
 
 void uart_async_isr_rx()
