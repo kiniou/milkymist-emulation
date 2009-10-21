@@ -22,7 +22,7 @@
 void emu_init()
 {
 	if(SDL_Init(SDL_INIT_VIDEO) < 0 ) {
-		fprintf(stderr, "Video initialization failed: %s\n", SDL_GetError());
+		fprintf(stderr, "Audio/Video initialization failed: %s\n", SDL_GetError());
 		exit(1);
 	}
 	atexit(SDL_Quit);

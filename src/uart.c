@@ -16,6 +16,7 @@
  */
 
 #include <termios.h>
+#include <stdlib.h>
 #include <poll.h>
 #include <unistd.h>
 #include <fcntl.h>

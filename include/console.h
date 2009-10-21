@@ -21,6 +21,5 @@
 #include <stdio.h>
 
 void putsnonl(const char *s);
-void readstr(char *s, int size);
 
 #endif /* __CONSOLE_H */

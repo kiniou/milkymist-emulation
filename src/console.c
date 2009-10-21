@@ -25,6 +25,3 @@ void putsnonl(const char *s)
 	write(0, s, strlen(s));
 }
 
-void readstr(char *s, int size)
-{
-}

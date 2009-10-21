@@ -1,7 +1,6 @@
 /*
  * Milkymist Emulation Libraries
  * Copyright (C) 2007, 2008, 2009 Sebastien Bourdeauducq
- * Copyright (C) 2009 Kevin Roy
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,8 +26,8 @@ int vga_vres;
 unsigned short int *vga_frontbuffer;
 unsigned short int *vga_backbuffer;
 
-unsigned short int *surface_buffer;
-unsigned short int *extra_buffer;
+static unsigned short int *surface_buffer;
+static unsigned short int *extra_buffer;
 
 static SDL_Surface *screen = NULL;
 
@@ -58,6 +57,7 @@ void vga_init()
 	atexit(free_extrabuffer);
 
 	printf("VGA: SDL emulation, %dx%d\n", vga_hres, vga_vres);
+	printf("VGA: framebuffers at %p %p\n", surface_buffer, extra_buffer);
 }
 
 void vga_swap_buffers()
