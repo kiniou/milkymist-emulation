@@ -18,6 +18,7 @@
 #ifndef __SYSTEM_H
 #define __SYSTEM_H
 
+void emu_init();
 void flush_bridge_cache();
 
 #endif /* __SYSTEM_H */

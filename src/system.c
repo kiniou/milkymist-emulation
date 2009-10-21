@@ -15,7 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <SDL/SDL.h>
 #include <system.h>
+
+void emu_init()
+{
+	if(SDL_Init(SDL_INIT_VIDEO) < 0 ) {
+		fprintf(stderr, "Video initialization failed: %s\n", SDL_GetError());
+		exit(1);
+	}
+	atexit(SDL_Quit);
+}
 
 void flush_bridge_cache()
 {

@@ -22,10 +22,8 @@ extern int vga_hres;
 extern int vga_vres;
 extern unsigned short int *vga_frontbuffer;
 extern unsigned short int *vga_backbuffer;
-extern unsigned short int *vga_lastbuffer;
 
 void vga_init();
-void vga_disable();
 void vga_swap_buffers();
 
 #endif /* __HAL_VGA_H */

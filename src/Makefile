@@ -1,4 +1,4 @@
-CFLAGS=-O2 -fno-builtin -fsigned-char -fsingle-precision-constant -I../include
+CFLAGS=-O2 -fno-builtin -fsigned-char -fsingle-precision-constant -I../include -I/usr/include/SDL
 
 OBJECTS=irq.o uart.o cffat.o console.o system.o brd.o hdlcd.o mem.o pfpu.o slowout.o snd.o time.o tmu.o vga.o
 
